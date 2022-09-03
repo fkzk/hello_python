@@ -62,6 +62,10 @@ def main_dict():
         'b': 5,
     }
 
-    print(f'{affine(**d)=}') # 辞書をアンパックしてキーワード引数として扱える
+    print(f'{d.get("x")=}') # d["x"]と同様、keyに対するvalueがわかる
+    print(f'{d.get("y")=}') # 存在しないキーの場合, 代わりにNoneという値が返る
+    print(f'{d.get("y", 7)=}') # 代わりに何を返すのかは決められる
+    print(f'{d["x"]=}')
+    print(f'{d["y"]=}') # 存在しないキーなのでエラー
 
 main_dict()
