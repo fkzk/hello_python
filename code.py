@@ -71,4 +71,10 @@ def main_dict():
     for key, value in d.items():
         print(f'{key=}, {value=}, {d[key]=}')
 
-main_dict()
+def main_bool():
+    x = True # Trueは真であることを表す定数
+    y = False # Falseは偽であることを表す定数
+    print(f'{x=}')
+    print(f'{y=}')
+
+main_bool()
