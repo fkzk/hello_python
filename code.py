@@ -3,6 +3,11 @@ def add_tax(price): # 関数名は動詞（原形）から始めるのが基本�
     price = price + tax
     return price
 
+def print_money(yen):
+    # 変数 = Trueのときに代入される値 if 真偽値 else Falseのときに代入される値
+    message = f'{yen}円も持ってる!' if yen > 2000 else f'{yen}円しか持ってない…'
+    print(message)
+
 def print_fruit(fruit, max_price):
     if fruit[2] < max_price / 4:
         print(f'{fruit[0]}: {fruit[2]}円！安い！')
@@ -19,8 +24,10 @@ def main_fruits():
         ('バナナ', 'banana', 185), # 最後の要素の後にコンマをつけてもOK
     ]
     print(f'{fruits1=}')
+    my_money = 1000
+    print_money(my_money)
     for fruit in fruits1:
-        print_fruit(fruit, max_price=1000)
+        print_fruit(fruit, max_price=my_money)
 
 def normalize(x, y): # 引数を複数設定可能
     r = (x**2 + y**2)**(0.5) # ** は累乗
