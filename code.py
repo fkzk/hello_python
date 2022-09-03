@@ -62,15 +62,6 @@ def main_dict():
         'b': 5,
     }
 
-    print(f'{d=}')
-    print(f'{type(d)=}')
-    print(f'{d["x"]=}') # keyから対応するvalueがわかる（''のなかでは""を使う）
-
-    key = 'b'
-    print(f'{key=}, {d[key]=}') # 辞書のキーは変数でもOK
-
-    d['c'] = 0 # key, valueの新規登録
-    d['x'] = -2 # 既存のkeyに対するvalueの更新
-    print(f'{d=}')
+    print(f'{affine(**d)=}') # 辞書をアンパックしてキーワード引数として扱える
 
 main_dict()
