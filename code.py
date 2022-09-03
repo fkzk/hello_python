@@ -1,3 +1,3 @@
-items = ('Good morning!', 123, 45.6, print) # 繰り返しの対象をひとつの変数に代入
-for i, x in enumerate(items): # enumerateで囲うことにより何番目のループかわかる
-    print(f'{i}回目のループ {x=}') # iは0から始まる
+HOURS = 12 # 定数であることを強調するために大文字の変数名にしている（書き換えられるが）
+for hour in range(HOURS): # range(数値)によって指定回数の繰り返し処理が可能
+    print(f'{hour:2d}時になりました') # :2dのように{}のなかでフォーマットを指定できる
