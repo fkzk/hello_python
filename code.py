@@ -8,9 +8,18 @@ class Fruit:
         self.names = {'jp': jp, 'en': en}
         self.price = price
 
-    def print(self, lang='jp'): # selfはそのインスタンス自身を指す
+    def print(self, lang='jp'): # 子クラスからも利用可能
         name = self.names[lang]
         print(f'{name}: {self.price}円')
+
+class PeelableFruit(Fruit): # Fruitは親クラス, PeelableFruitは子クラス
+    def __init__(self, jp, en, price, way='ナイフ'):
+        super().__init__(jp, en, price) # 親クラス（Fruit）の__init__を実行
+        self.way = way # 親クラスにない処理を書き足せる
+
+    def peel(self, lang='jp'): # 親クラスにない関数も追加できる
+        name = self.names[lang]
+        print(f'{self.way}で{name}の皮をむいた')
 
 def print_money(yen):
     # 変数 = Trueのときに代入される値 if 真偽値 else Falseのときに代入される値
@@ -27,20 +36,20 @@ def print_fruit(fruit, max_price):
 
 def main_fruits():
     fruits = [
-        Fruit('リンゴ', 'apple', 479), # __init__のself以外の引数を指定
-        Fruit('みかん', 'orange', 339), # Fruitクラスのインスタンス（実例）を作成
+        PeelableFruit('リンゴ', 'apple', 479), # __init__のself以外の引数を指定
+        PeelableFruit('みかん', 'orange', 339, '手'), 
         Fruit('いちご', 'strawberry', 2064),
-        Fruit('バナナ', 'banana', 185),
+        PeelableFruit('バナナ', 'banana', 185, '手'),
     ]
-    print(f'{fruits=}')
-    my_money = 1000
-    print_money(my_money)
-    # リスト内包表記のなかのifは条件を絞るための役割を果たす
-    # 買えるフルーツだけのリストを作る
-    # 作成したFruitクラスはインスタンス名.priceで値段がわかる（fruit[2]より読みやすい）
-    buyable_fruits = [fruit for fruit in fruits if fruit.price < my_money]
-    for fruit in buyable_fruits:
-        fruit.print() # Fruitクラス内で定義したprint関数（selfはfruit自身なので省略）
+    peach = PeelableFruit('もも', 'peach', 837) # インスタンスはもちろん代入できる
+    fruits.append(peach) # listクラスのappend関数を呼び出している
+    for fruit in fruits:
+        fruit.print() # Fruitクラス内で定義したprint関数はPeelableFruitに継承される
+        if isinstance(fruit, PeelableFruit): # PeelableFruitのインスタンスかどうか
+            fruit.peel()
+        else:
+            print(f'{fruit.names["jp"]}は皮をむけない')
+        print('')
 
 def normalize(x, y): # 引数を複数設定可能
     r = (x**2 + y**2)**(0.5) # ** は累乗
