@@ -127,5 +127,10 @@ def main_bool():
     print(f'{b1=}, {not b1=}')
     print(f'{b2=}, {not b2=}')
 
-main_normalize()
-main_affine()
+def main_with():
+    with open('LICENSE', 'r') as f: # このwithブロックの中だけファイルを開く
+        text = f.readlines()
+    for line in text: # withブロック内で代入した変数は外でも使える
+        print(line)
+
+main_with()
