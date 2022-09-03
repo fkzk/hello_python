@@ -71,12 +71,18 @@ def main_dict():
     for key, value in d.items():
         print(f'{key=}, {value=}, {d[key]=}')
 
+def one_hour_true():
+    print('～1時間後～')
+    return True
+
+def one_sec_false():
+    print('～1秒後～')
+    return False
+
 def main_bool():
-    b2 = 'b2'
-    for b1 in (None, 'b1'):
-        print(f'{b1=}, {bool(b1)=}') # 0, '', (), [], {}, None, False はFalse判定
-        print(f'{b1 and b2 =}') # b1がTrueならb2, b1がFalseならb1
-        print(f'{b1 or b2 =}') # b1がTrueならb1, b1がFalseならb2
-        print('')
+    h_and_s = one_hour_true() and one_sec_false()
+    print(f'{h_and_s=}')
+    s_and_h = one_sec_false() and one_hour_true()
+    print(f'{s_and_h=}') # andは速く判定できるものを先にしたほうが得
 
 main_bool()
