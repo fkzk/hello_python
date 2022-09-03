@@ -46,4 +46,13 @@ def main_affine():
     print(f'{affine(x_in, a_in, b_in)=}') # 順番通り並べれば=は不要
     print(f'{affine(b=b_in, a=a_in, x=x_in)=}') # =を使えば順番が変わってもよい
 
-main_affine()
+def main_affine_lambda():
+    # lambda 引数: 戻り値  （ラムダ式）によって簡単な関数が書ける
+    lambda_affine = lambda x, a, b=0: x*a+b
+    print(f'{type(lambda_affine)=}')
+    x_in, a_in, b_in = 3, 2, 5
+    print(f'{(x_in, a_in, b_in)=}')
+    print(f'{lambda_affine(x_in, a_in)=}')
+    print(f'{lambda_affine(b=b_in, a=a_in, x=x_in)=}')
+
+main_affine_lambda()
