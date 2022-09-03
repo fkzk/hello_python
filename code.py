@@ -72,8 +72,9 @@ def main_dict():
         print(f'{key=}, {value=}, {d[key]=}')
 
 def main_bool():
-    x = True # Trueは真であることを表す定数
-    y = False # Falseは偽であることを表す定数
+    a, b = 2, 3
+    x = a < b # aがbより小さいかを評価してTrueかFalseを代入
+    y = a == b # aとbが等しいかを評価してTrueかFalseを代入
     print(f'{x=}')
     print(f'{y=}')
 
