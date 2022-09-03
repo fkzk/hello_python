@@ -3,6 +3,15 @@ def add_tax(price): # 関数名は動詞（原形）から始めるのが基本�
     price = price + tax
     return price
 
+class Fruit:
+    def __init__(self, jp, en, price): # __init__はインスタンス作成時に呼ばれる
+        self.names = {'jp': jp, 'en': en}
+        self.price = price
+
+    def print(self, lang='jp'): # selfはそのインスタンス自身を指す
+        name = self.names[lang]
+        print(f'{name}: {self.price}円')
+
 def print_money(yen):
     # 変数 = Trueのときに代入される値 if 真偽値 else Falseのときに代入される値
     message = f'{yen}円も持ってる!' if yen > 2000 else f'{yen}円しか持ってない…'
@@ -17,20 +26,21 @@ def print_fruit(fruit, max_price):
         print(f'{fruit[0]}: {fruit[2]}円…買えない…')
 
 def main_fruits():
-    fruits1 = [ # このlistの各データの順番が入れ替わったり追加・削除されても違和感がない
-        ('リンゴ', 'apple', 479), # ('apple', 479, 'リンゴ')に変えると変
-        ('みかん', 'orange', 339), # ('みかん', 'orange', 339, '愛媛')に変えると変
-        ('いちご', 'strawberry', 2064), # ('いちご', 2064)に変えると変
-        ('バナナ', 'banana', 185), # 最後の要素の後にコンマをつけてもOK
+    fruits = [
+        Fruit('リンゴ', 'apple', 479), # __init__のself以外の引数を指定
+        Fruit('みかん', 'orange', 339), # Fruitクラスのインスタンス（実例）を作成
+        Fruit('いちご', 'strawberry', 2064),
+        Fruit('バナナ', 'banana', 185),
     ]
-    print(f'{fruits1=}')
+    print(f'{fruits=}')
     my_money = 1000
     print_money(my_money)
     # リスト内包表記のなかのifは条件を絞るための役割を果たす
     # 買えるフルーツだけのリストを作る
-    buyable_fruits = [fruit for fruit in fruits1 if fruit[2] < my_money]
+    # 作成したFruitクラスはインスタンス名.priceで値段がわかる（fruit[2]より読みやすい）
+    buyable_fruits = [fruit for fruit in fruits if fruit.price < my_money]
     for fruit in buyable_fruits:
-        print_fruit(fruit, max_price=my_money)
+        fruit.print() # Fruitクラス内で定義したprint関数（selfはfruit自身なので省略）
 
 def normalize(x, y): # 引数を複数設定可能
     r = (x**2 + y**2)**(0.5) # ** は累乗
