@@ -51,6 +51,19 @@ def main_fruits():
             print(f'{fruit.names["jp"]}は皮をむけない')
         print('')
 
+def print_and_exec(fn):
+    # 「関数名(引数): 返り値」をprintしながらfnを実行するようにfnを加工
+    def _pae(*args, **kwargs):
+        # 加工後のfnのふるまいを定義
+        y = fn(*args, **kwargs) # 本来のfnの計算
+        args_list = [str(arg) for arg in args]
+        kw_list = [f'{key}={value}' for key, value in kwargs.items()]
+        args_str = ', '.join(args_list+kw_list)
+        print(f'{fn.__name__}({args_str}): {y}') # 実行の詳細をprintする処理を追加
+        return y
+    return _pae # fnをもとに定義（加工）した_paeという関数を返す
+
+@print_and_exec # @デコレータをつけると加工できる
 def normalize(x, y): # 引数を複数設定可能
     r = (x**2 + y**2)**(0.5) # ** は累乗
     ex = x / r # / は割り算（結果はfloat）
@@ -63,20 +76,17 @@ def main_normalize():
     v = (x, y)
     ex, ey = normalize(x, y) # 分割して受け取れる
     e = normalize(*v) # 入出力ともにまとめてもOK
-    print(f'{(x, y)=}')
-    print(f'{(ex, ey)=}')
-    print(f'{e=}, {type(e)}')
 
 def affine(x, a, b=0): # bは指定されなければ0が使われる
     return a*x+b
 
 def main_affine():
     x_in, a_in, b_in = 3, 2, 5 # まとめて代入できる（読みにくくならないよう注意）
-    print(f'{(x_in, a_in, b_in)=}')
-    print(f'{affine(x_in, a_in)=}') # キーワード引数 b は省略可能
-    print(f'{affine(x_in, a_in, b=b_in)=}')
-    print(f'{affine(x_in, a_in, b_in)=}') # 順番通り並べれば=は不要
-    print(f'{affine(b=b_in, a=a_in, x=x_in)=}') # =を使えば順番が変わってもよい
+    print('** 加工前 **')
+    y = affine(x_in, a_in, b=b_in)
+    affine_pae = print_and_exec(affine) #直接囲っても加工できる
+    print('** 加工後 **')
+    y = affine_pae(x_in, a_in, b=b_in)
 
 def main_affine_lambda():
     # lambda 引数: 戻り値  （ラムダ式）によって簡単な関数が書ける
@@ -117,4 +127,5 @@ def main_bool():
     print(f'{b1=}, {not b1=}')
     print(f'{b2=}, {not b2=}')
 
-main_fruits()
+main_normalize()
+main_affine()
