@@ -5,26 +5,15 @@ fruits1 = [ # このlistの各データの順番が入れ替わったり追加�
     ('バナナ', 'banana', 185), # 最後の要素の後にコンマをつけてもOK
 ]
 print(f'{fruits1=}')
-print('')
 
-peach = ('もも', 'peach', 837)
-fruits1.append(peach) # listの末尾に要素をひとつ追加
-print(f'peachをappendした結果: {fruits1=}')
+# これまでに習ったやり方で日本語の名前だけのリストを作る
+fruits_jp = []
+for fruit in fruits1:
+    fruits_jp.append(fruit[0])
+print(f'{fruits_jp=}')
 
-fruits2 = [
-    ('さくらんぼ', 'cherry', 1867),
-    ('レモン', 'lemon', 459),
-]
-print(f'{fruits2=}')
-print('')
-
-print(f'{fruits1+fruits2=}') # + でlistを結合できる（tupleでも可）
-print(f'{fruits2+fruits1=}') # + の前後の順番で結果が変わる
-print('')
-
-print(f'{fruits1=}') # さっきの + では中身は変化していない
-fruits1.extend(fruits2) # listの末尾に別のlistを結合して追加
-print(f'fruit2をextendした結果: {fruits1=}') # extendにより中身が変化
-print('')
-
-peach.append('山梨') # tupleはappendが使えないのでエラー
+# リスト内包表記
+fruits_en = [fruit[1] for fruit in fruits1] # 1行で英語の名前のリストを作れる
+print(f'{fruits_en=}')
+fruits_yen_with_tax = [int(fruit[2] * 1.10) for fruit in fruits1] # * はかけ算
+print(f'{fruits_yen_with_tax=}')
