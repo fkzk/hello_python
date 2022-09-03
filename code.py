@@ -3,6 +3,11 @@ def add_tax(price): # 関数名は動詞（原形）から始めるのが基本�
     price = price + tax
     return price
 
+def print_fruit(fruit, max_price):
+    is_buyable = fruit[2] < max_price
+    if is_buyable: # is_buyableがTrueのときだけ実行されるブロック
+        print(f'{fruit[0]}: {fruit[2]}円')
+
 def main_fruits():
     fruits1 = [ # このlistの各データの順番が入れ替わったり追加・削除されても違和感がない
         ('リンゴ', 'apple', 479), # ('apple', 479, 'リンゴ')に変えると変
@@ -11,13 +16,8 @@ def main_fruits():
         ('バナナ', 'banana', 185), # 最後の要素の後にコンマをつけてもOK
     ]
     print(f'{fruits1=}')
-
-    fruits_yen_with_tax = [add_tax(fruit[2]) for fruit in fruits1] # 処理が明快に
-    print(f'{fruits_yen_with_tax=}')
-    print('')
-
-    for fn in (add_tax, print, round):
-        print(f'{fn.__name__}: {type(fn)}') # 関数.__name__で関数名がわかる
+    for fruit in fruits1:
+        print_fruit(fruit, max_price=1000)
 
 def normalize(x, y): # 引数を複数設定可能
     r = (x**2 + y**2)**(0.5) # ** は累乗
@@ -85,4 +85,4 @@ def main_bool():
     print(f'{b1=}, {not b1=}')
     print(f'{b2=}, {not b2=}')
 
-main_bool()
+main_fruits()
