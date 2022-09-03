@@ -55,4 +55,22 @@ def main_affine_lambda():
     print(f'{lambda_affine(x_in, a_in)=}')
     print(f'{lambda_affine(b=b_in, a=a_in, x=x_in)=}')
 
-main_affine_lambda()
+def main_dict():
+    d = {
+        'x': 3, # 'key': valueの形で対応する値を記録
+        'a': 2,
+        'b': 5,
+    }
+
+    print(f'{d=}')
+    print(f'{type(d)=}')
+    print(f'{d["x"]=}') # keyから対応するvalueがわかる（''のなかでは""を使う）
+
+    key = 'b'
+    print(f'{key=}, {d[key]=}') # 辞書のキーは変数でもOK
+
+    d['c'] = 0 # key, valueの新規登録
+    d['x'] = -2 # 既存のkeyに対するvalueの更新
+    print(f'{d=}')
+
+main_dict()
