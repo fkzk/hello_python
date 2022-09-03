@@ -35,4 +35,15 @@ def main_normalize():
     print(f'{(ex, ey)=}')
     print(f'{e=}, {type(e)}')
 
-main_normalize()
+def affine(x, a, b=0): # bは指定されなければ0が使われる
+    return a*x+b
+
+def main_affine():
+    x_in, a_in, b_in = 3, 2, 5 # まとめて代入できる（読みにくくならないよう注意）
+    print(f'{(x_in, a_in, b_in)=}')
+    print(f'{affine(x_in, a_in)=}') # キーワード引数 b は省略可能
+    print(f'{affine(x_in, a_in, b=b_in)=}')
+    print(f'{affine(x_in, a_in, b_in)=}') # 順番通り並べれば=は不要
+    print(f'{affine(b=b_in, a=a_in, x=x_in)=}') # =を使えば順番が変わってもよい
+
+main_affine()
