@@ -4,9 +4,12 @@ def add_tax(price): # 関数名は動詞（原形）から始めるのが基本�
     return price
 
 def print_fruit(fruit, max_price):
-    is_buyable = fruit[2] < max_price
-    if is_buyable: # is_buyableがTrueのときだけ実行されるブロック
+    if fruit[2] < max_price / 4:
+        print(f'{fruit[0]}: {fruit[2]}円！安い！')
+    elif fruit[2] < max_price: # ifの条件がFalseの場合評価され、Trueなら実行
         print(f'{fruit[0]}: {fruit[2]}円')
+    else: # ifの条件にもelifの条件（複数可）にも当てはまらない場合に実行
+        print(f'{fruit[0]}: {fruit[2]}円…買えない…')
 
 def main_fruits():
     fruits1 = [ # このlistの各データの順番が入れ替わったり追加・削除されても違和感がない
