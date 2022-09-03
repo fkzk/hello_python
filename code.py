@@ -1,25 +1,30 @@
-start = 3
-end = 13
-step = 2
-for c_type in (tuple, list):
-    print(f'// {c_type=}')
-    numbers = c_type(range(15)) # rangeをtuple型やlist型に変換する
-    print(f'// {numbers=}')
-    print(f'// {start=}, {end=}, {step=}')
-    print('')
+fruits1 = [ # このlistの各データの順番が入れ替わったり追加・削除されても違和感がない
+    ('リンゴ', 'apple', 479), # ('apple', 479, 'リンゴ')に変えると変
+    ('みかん', 'orange', 339), # ('みかん', 'orange', 339, '愛媛')に変えると変
+    ('いちご', 'strawberry', 2064), # ('いちご', 2064)に変えると変
+    ('バナナ', 'banana', 185), # 最後の要素の後にコンマをつけてもOK
+]
+print(f'{fruits1=}')
+print('')
 
-    print(f'** {start}番目から({end}-1)番目までを{step}個おきに取り出す **')
-    print(f'{numbers[start:end:step]=}')
-    print('')
+peach = ('もも', 'peach', 837)
+fruits1.append(peach) # listの末尾に要素をひとつ追加
+print(f'peachをappendした結果: {fruits1=}')
 
-    print(f'** {start}番目以降を取り出す **')
-    print(f'{numbers[start:]=}')
-    print('')
+fruits2 = [
+    ('さくらんぼ', 'cherry', 1867),
+    ('レモン', 'lemon', 459),
+]
+print(f'{fruits2=}')
+print('')
 
-    print(f'** ({end}-1)番目までを{step}個おきに取り出す **')
-    print(f'{numbers[:end:step]=}')
-    print('')
+print(f'{fruits1+fruits2=}') # + でlistを結合できる（tupleでも可）
+print(f'{fruits2+fruits1=}') # + の前後の順番で結果が変わる
+print('')
 
-    print('** 逆順にする **')
-    print(f'{numbers[::-1]=}')
-    print('')
+print(f'{fruits1=}') # さっきの + では中身は変化していない
+fruits1.extend(fruits2) # listの末尾に別のlistを結合して追加
+print(f'fruit2をextendした結果: {fruits1=}') # extendにより中身が変化
+print('')
+
+peach.append('山梨') # tupleはappendが使えないのでエラー
