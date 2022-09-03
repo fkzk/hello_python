@@ -19,4 +19,20 @@ def main_fruits():
     for fn in (add_tax, print, round):
         print(f'{fn.__name__}: {type(fn)}') # 関数.__name__で関数名がわかる
 
-main_fruits() # 関数を呼び出すことで初めて実行される
+def normalize(x, y): # 引数を複数設定可能
+    r = (x**2 + y**2)**(0.5) # ** は累乗
+    ex = x / r # / は割り算（結果はfloat）
+    ey = y / r
+    return ex, ey # 複数の返り値もOK（tupleとして返される）
+
+def main_normalize():
+    x = 3
+    y = 4
+    v = (x, y)
+    ex, ey = normalize(x, y) # 分割して受け取れる
+    e = normalize(*v) # 入出力ともにまとめてもOK
+    print(f'{(x, y)=}')
+    print(f'{(ex, ey)=}')
+    print(f'{e=}, {type(e)}')
+
+main_normalize()
