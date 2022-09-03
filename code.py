@@ -26,7 +26,10 @@ def main_fruits():
     print(f'{fruits1=}')
     my_money = 1000
     print_money(my_money)
-    for fruit in fruits1:
+    # リスト内包表記のなかのifは条件を絞るための役割を果たす
+    # 買えるフルーツだけのリストを作る
+    buyable_fruits = [fruit for fruit in fruits1 if fruit[2] < my_money]
+    for fruit in buyable_fruits:
         print_fruit(fruit, max_price=my_money)
 
 def normalize(x, y): # 引数を複数設定可能
