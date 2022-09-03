@@ -80,9 +80,9 @@ def one_sec_false():
     return False
 
 def main_bool():
-    h_and_s = one_hour_true() and one_sec_false()
-    print(f'{h_and_s=}')
-    s_and_h = one_sec_false() and one_hour_true()
-    print(f'{s_and_h=}') # andは速く判定できるものを先にしたほうが得
+    b1 = 2 < 3
+    b2 = 2 == 3
+    print(f'{b1=}, {not b1=}')
+    print(f'{b2=}, {not b2=}')
 
 main_bool()
