@@ -72,20 +72,11 @@ def main_dict():
         print(f'{key=}, {value=}, {d[key]=}')
 
 def main_bool():
-    a, b = 2, 3
-    x = a < b # aがbより小さいかを評価してTrueかFalseを代入
-    y = a == b # aとbが等しいかを評価してTrueかFalseを代入
-    x_and_y = x and y # xとyが両方Trueかどうかを評価してTrueかFalseを代入
-    x_or_y = x or y # xとyの少なくとも一つがTrueかどうかを評価してTrueかFalseを返す
-    print(f'{x=}')
-    print(f'{y=}')
-    print(f'{x_and_y=}')
-    print(f'{x_or_y=}')
-    for b1 in (True, False):
-        for b2 in (True, False):
-            print('')
-            print(f'{b1=}, {b2=}')
-            print(f'{b1 and b2 =}')
-            print(f'{b1 or b2 =}')
+    b2 = 'b2'
+    for b1 in (None, 'b1'):
+        print(f'{b1=}, {bool(b1)=}') # 0, '', (), [], {}, None, False はFalse判定
+        print(f'{b1 and b2 =}') # b1がTrueならb2, b1がFalseならb1
+        print(f'{b1 or b2 =}') # b1がTrueならb1, b1がFalseならb2
+        print('')
 
 main_bool()
