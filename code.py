@@ -6,14 +6,14 @@ fruits1 = [ # このlistの各データの順番が入れ替わったり追加�
 ]
 print(f'{fruits1=}')
 
-# これまでに習ったやり方で日本語の名前だけのリストを作る
-fruits_jp = []
-for fruit in fruits1:
-    fruits_jp.append(fruit[0])
-print(f'{fruits_jp=}')
+def add_tax(price): # 関数名は動詞（原形）から始めるのが基本。 _ で単語をつなぐ
+    tax = round(price * 0.10) # roundやprintはPythonが用意したbuilt-in関数
+    price = price + tax
+    return price
 
-# リスト内包表記
-fruits_en = [fruit[1] for fruit in fruits1] # 1行で英語の名前のリストを作れる
-print(f'{fruits_en=}')
-fruits_yen_with_tax = [int(fruit[2] * 1.10) for fruit in fruits1] # * はかけ算
+fruits_yen_with_tax = [add_tax(fruit[2]) for fruit in fruits1] # 処理が明快に
 print(f'{fruits_yen_with_tax=}')
+print('')
+
+for fn in (add_tax, print, round):
+    print(f'{fn.__name__}: {type(fn)}') # 関数.__name__で関数名がわかる
