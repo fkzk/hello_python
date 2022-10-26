@@ -1,3 +1,11 @@
+import math # mathはPythonの標準モジュールの1つ
+
+def main():
+    root2 = math.sqrt(2)
+    pi = math.pi
+    print(f'{root2 = }')
+    print(f'{pi = }')
+
 class Fruit:
     def __init__(self, jp, en, price): # 初期化用, selfは作成されるインスタンス（実例）
         self.jp = jp # peachという変数ならpeach.jp = jpに相当
@@ -18,7 +26,7 @@ class PeelableFruit(Fruit):
     def peel(self):
         print(f'{self.jp}の皮を手で剥いた')
 
-def main():
+def print_fruits():
     fruits = [ # a list of tuples
         Fruit('リンゴ', 'apple', 479), # __init__が実行される。第1引数のselfは省略
         PeelableFruit('みかん', 'orange', 339),
