@@ -79,7 +79,7 @@ def switch_regressor():
     f_x = regressor(data) # poly(data)が呼び出されている
 
 def introduce_dict():
-    fruits = { # 'key': value の形式で列挙
+    fruits: dict[str, Fruit] = { # 'key': value の形式で列挙
         'apple': Fruit('リンゴ', 'apple', 479),
         'orange': PeelableFruit('みかん', 'orange', 339),
     }
