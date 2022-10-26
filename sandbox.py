@@ -7,9 +7,11 @@ def main():
     ]
     peach = ('もも', 'peach', 837)
     fruits.append(peach) # peach.append('山梨県')は失敗 -> tupleだとappendできない
+    print(fruits[2]) # 番号は0からスタートするため3番目
+    print(fruits[-1]) # 負の数は後ろから
     # [演習] fruitsの中身を展開して「No. i: fruit」の形式でprint
-    for i, fruit in enumerate(fruits):
-        print(f'No. {i}: {fruit}')
+    for fruit in fruits:
+        print(f'{fruit[0]}({fruit[1]}): {fruit[2]}円')
 
 def check_types():
     # ( )の中を,区切りで列挙したものをtupleという
