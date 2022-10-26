@@ -14,18 +14,24 @@ class Fruit:
             postfix = '（税抜）'
         print(f'{self.jp}({self.en}): {price}円{postfix}')
 
+class PeelableFruit(Fruit):
+    def peel(self):
+        print(f'{self.jp}の皮を手で剥いた')
+
 def main():
     fruits = [ # a list of tuples
         Fruit('リンゴ', 'apple', 479), # __init__が実行される。第1引数のselfは省略
-        Fruit('みかん', 'orange', 339),
+        PeelableFruit('みかん', 'orange', 339),
         Fruit('いちご', 'strawberry', 2064),
-        Fruit('バナナ', 'banana', 185),
+        PeelableFruit('バナナ', 'banana', 185),
     ]
-    peach = Fruit('もも', 'peach', 837)
+    peach = PeelableFruit('もも', 'peach', 837)
     fruits.append(peach) # peach.append('山梨県')は失敗 -> tupleだとappendできない
     # [演習] fruitsの中身を展開して「No. i: fruit」の形式でprint
     for fruit in fruits:
-        fruit.print_info()
+        if isinstance(fruit, PeelableFruit): # PeelableFruitのfruitなら
+            fruit.peel()
+        fruit.print_info() # PeelableFruitもprint_infoが使える
 
 def check_types():
     # ( )の中を,区切りで列挙したものをtupleという
