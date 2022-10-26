@@ -10,4 +10,6 @@ message_list = [
 for i_loop, item in enumerate(message_list):
     if i_loop == 0: # == は”等しいかどうか"を判定
         print('最初のループ')
+    else:
+        print('早く終わってほしい')
     print(f'{i_loop}回目のループ: {item}')
