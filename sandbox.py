@@ -1,6 +1,26 @@
 import math # mathはPythonの標準モジュールの1つ
 
+def poly(data):
+    print(f'{data}を多項式フィッティングで回帰')
+
+def gp(data):
+    print(f'{data}をガウス過程回帰で回帰')
+
+def nn(data):
+    print(f'{data}をニューラルネットワークで回帰')
+
 def main():
+    method = 'poly' # 回帰方法の指定
+    regressors = {
+        'poly': poly,
+        'gp': gp,
+        'nn': nn,
+    }
+    regressor = regressors[method] # regressorはpoly関数になる
+    data = 'データ'
+    f_x = regressor(data) # poly(data)が呼び出されている
+
+def introduce_dict():
     fruits = { # 'key': value の形式で列挙
         'apple': Fruit('リンゴ', 'apple', 479),
         'orange': PeelableFruit('みかん', 'orange', 339),
