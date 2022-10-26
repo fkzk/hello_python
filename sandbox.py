@@ -4,9 +4,15 @@ class Fruit:
         self.en = en
         self.price = price
 
-    def print_info(self):
+    def print_info(self, with_tax=False):
         # [演習] オプションで消費税8%を加えた表示にできるよう書き換え
-        print(f'{self.jp}({self.en}): {self.price}円')
+        if with_tax:
+            price = int(self.price * 1.08) # 小数からintクラスのオブジェクトを作成
+            postfix = '（税込）'
+        else:
+            price = self.price
+            postfix = '（税抜）'
+        print(f'{self.jp}({self.en}): {price}円{postfix}')
 
 def main():
     fruits = [ # a list of tuples
