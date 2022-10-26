@@ -1,9 +1,23 @@
 import math # mathはPythonの標準モジュールの1つ
 
+def main():
+    a = 5
+    b = 3
+    c = 4
+    print(f'{a = }, {b = }, {c = }')
+    print(f'{a + b = }') # 足し算
+    print(f'{b + c = }') # 引き算
+    print(f'{a + b * c = }') # かけ算は足し算より先に計算
+    print(f'{(a + b) * c = }') # ( )で優先順位を変えられる
+    print(f'{a / b = }') # 普通の割り算
+    print(f'{a // b = }') # 整除算（あまりを無視した商）
+    print(f'{a % b = }') # aをbで割ったときのあまり
+    print(f'{a ** b = }') # aのb乗
+
 def affine(x, a, b = 0):
     return a * x + b
 
-def main():
+def input_kwargs():
     kwargs = dict(a = 1, x = 2, b = 3) # {'a': 1, 'x': 2, 'b': 3}と同じ
     print(f'{affine(**kwargs) = }') # **dict名 で一気に引数を指定
 
