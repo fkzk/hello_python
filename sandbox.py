@@ -4,6 +4,10 @@ class Fruit:
         self.en = en
         self.price = price
 
+    def print_info(self):
+        # [演習] オプションで消費税8%を加えた表示にできるよう書き換え
+        print(f'{self.jp}({self.en}): {self.price}円')
+
 def main():
     fruits = [ # a list of tuples
         Fruit('リンゴ', 'apple', 479), # __init__が実行される。第1引数のselfは省略
@@ -15,8 +19,7 @@ def main():
     fruits.append(peach) # peach.append('山梨県')は失敗 -> tupleだとappendできない
     # [演習] fruitsの中身を展開して「No. i: fruit」の形式でprint
     for fruit in fruits:
-        # 名前でアクセスできるため可読性○
-        print(f'{fruit.jp}({fruit.en}): {fruit.price}円')
+        fruit.print_info()
 
 def check_types():
     # ( )の中を,区切りで列挙したものをtupleという
