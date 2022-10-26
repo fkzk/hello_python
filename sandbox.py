@@ -1,5 +1,12 @@
 import math # mathはPythonの標準モジュールの1つ
 
+def affine(x, a, b = 0):
+    return a * x + b
+
+def main():
+    kwargs = dict(a = 1, x = 2, b = 3) # {'a': 1, 'x': 2, 'b': 3}と同じ
+    print(f'{affine(**kwargs) = }') # **dict名 で一気に引数を指定
+
 def poly(data):
     print(f'{data}を多項式フィッティングで回帰')
 
@@ -9,7 +16,7 @@ def gp(data):
 def nn(data):
     print(f'{data}をニューラルネットワークで回帰')
 
-def main():
+def switch_regressor():
     method = 'poly' # 回帰方法の指定
     regressors = {
         'poly': poly,
