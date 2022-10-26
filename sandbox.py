@@ -1,6 +1,28 @@
 import math # mathはPythonの標準モジュールの1つ
 
+def add_complex(
+    a: tuple[float, float],
+    b: tuple[float, float],
+) -> tuple[float, float]:
+    """複素数aとbを足す。
+
+    a = p + qi, b = r + siとして、a + b = (p + r) + (q + s)iを計算する。
+
+    Args:
+        a (tuple[float, float]): 足される複素数。(p, q) の形式のtuple。
+        b (tuple[float, float]): 足す複素数。(r, s) の形式のtuple。
+
+    Returns:
+        tuple[float, float]: aとbの和。(p+r, q+s) の形式のtuple。
+    """
+    return (a[0]+b[0], a[1]+b[1])
+
 def main():
+    a = (1, 2)
+    b = (3, 4)
+    print(f'{add_complex(a, b) = }')
+
+def bool_samples():
     a = 5
     b = 3
     c = 4
