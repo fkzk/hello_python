@@ -5,6 +5,8 @@ def main():
         ('いちご', 'strawberry', 2064),
         ('バナナ', 'banana', 185),
     ]
+    peach = ('もも', 'peach', 837)
+    fruits.append(peach) # peach.append('山梨県')は失敗 -> tupleだとappendできない
     # [演習] fruitsの中身を展開して「No. i: fruit」の形式でprint
     for i, fruit in enumerate(fruits):
         print(f'No. {i}: {fruit}')
