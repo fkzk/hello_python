@@ -1,6 +1,5 @@
 message = 'Hello, World!'
-print('message')
-print(message)
-print(f'{message}')
-print(f'メッセージ: {message}')
-print(f'{message = }')
+message_list = ['message', message, f'{message}', f'メッセージ: {message}', f'{message = }']
+for item in message_list:
+    print(item)
+print('繰り返し終了')
