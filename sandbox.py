@@ -8,6 +8,10 @@ def main():
     print(f'{item_tuple = }')
     print('')
     # [演習]以下にtupleの中身それぞれについて上と同様に型・値を表示するコードを書く
+    for item in item_tuple:
+        print(f'{type(item) = }')
+        print(f'{item = }')
+        print('')
 
 if __name__ == '__main__': # sandbox.pyを直接実行したら
     main()
