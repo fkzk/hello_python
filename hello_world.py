@@ -7,5 +7,5 @@ message_list = [
     f'{message = }', # 実は最後の要素に,をつけてもOK
 ]
 # スライドでは個々より上の部分を次から省略
-for item in message_list:
-    print(item)
+for i_loop, item in enumerate(message_list):
+    print(f'{i_loop}回目のループ: {item}')
