@@ -4,6 +4,21 @@ def main():
     a = 5
     b = 3
     c = 4
+    nums = (1, 2, 3)
+    print(f'{a = }, {b = }, {c = }, {nums = }')
+    print(f'{a == b = }') # 等しいかどうか、!= は等しくないかどうか
+    print(f'{b < c = }') # >, <=, >= もある
+    print(f'{a == b and b < c = }') # and は両方TrueのときだけTrue
+    print(f'{a == b or b < c = }') # or は片方でもTrueならTrue
+    print(f'{not isinstance(a, int) = }') # notは直後の真偽値を反転させる
+    print(f'{a in nums = }') # numsにaが含まれているかどうか
+    print(f'{a not in nums = }') # not in はinと逆の真偽値を返す
+    print(f'{a is None = }') # aがNoneかどうか、is notで逆の真偽値を返す
+
+def calculate_samples():
+    a = 5
+    b = 3
+    c = 4
     print(f'{a = }, {b = }, {c = }')
     print(f'{a + b = }') # 足し算
     print(f'{b + c = }') # 引き算
