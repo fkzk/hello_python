@@ -6,6 +6,8 @@ def main():
         ('バナナ', 'banana', 185),
     ]
     # [演習] fruitsの中身を展開して「No. i: fruit」の形式でprint
+    for i, fruit in enumerate(fruits):
+        print(f'No. {i}: {fruit}')
 
 def check_types():
     # ( )の中を,区切りで列挙したものをtupleという
