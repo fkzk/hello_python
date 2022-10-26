@@ -1,6 +1,16 @@
 import math # mathはPythonの標準モジュールの1つ
 
 def main():
+    fruits = { # 'key': value の形式で列挙
+        'apple': Fruit('リンゴ', 'apple', 479),
+        'orange': PeelableFruit('みかん', 'orange', 339),
+    }
+    fruits['peach'] = PeelableFruit('もも', 'peach', 837) # 要素の追加
+    for key, value in fruits.items(): # .keys()や.values()もある
+        print(f'{key = }')
+        value.print_info(with_tax = True)
+
+def use_math():
     root2 = math.sqrt(2)
     pi = math.pi
     print(f'{root2 = }')
